@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YASENZO | Luxury Footwear</title>
+<meta name="description" content="YASENZO luxury footwear — premium styles, confident movement.">
+<style>
+:root{--bg:#080808;--card:#111;--line:#252525;--text:#f3eee5;--muted:#aaa49a;--gold:#c7a66a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+a{text-decoration:none;color:inherit}.wrap{max-width:1200px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:rgba(8,8,8,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:800;letter-spacing:6px;font-size:22px}.logo b{color:var(--gold);font-size:10px;vertical-align:top}
+.links{display:flex;gap:28px;text-transform:uppercase;letter-spacing:1.5px;font-size:12px;color:#d4cec3}.links a:hover{color:var(--gold)}
+.cart{border:1px solid #51442f;padding:10px 14px;color:var(--gold);font-size:12px;cursor:pointer}
+.hero{min-height:650px;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 38%,#2a241b 0,#12110f 27%,#080808 67%);position:relative;overflow:hidden}
+.hero:after{content:"Y";position:absolute;font-size:650px;line-height:.7;color:#fff;opacity:.018;right:-80px;bottom:-130px;font-weight:900}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:5px;text-transform:uppercase}.hero h1{font-size:clamp(55px,11vw,125px);letter-spacing:15px;margin:20px 0 10px}.hero p{max-width:600px;margin:0 auto 28px;color:var(--muted);line-height:1.7}
+.btn{display:inline-block;background:var(--text);color:#080808;border:1px solid var(--text);padding:14px 28px;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:bold;cursor:pointer}.btn:hover{background:transparent;color:var(--text)}
+section{padding:85px 0}.head{text-align:center;margin-bottom:42px}.head h2{font-size:38px;letter-spacing:2px;margin:10px 0}.head p{color:var(--muted)}
+.filters{display:flex;justify-content:center;gap:8px;margin-bottom:28px;flex-wrap:wrap}.filter{background:transparent;color:#bbb;border:1px solid #333;padding:9px 14px;cursor:pointer}.filter.active,.filter:hover{border-color:var(--gold);color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.product{background:var(--card);border:1px solid var(--line);overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);border-color:#54472f}
+.pic{height:300px;display:grid;place-items:center;background:linear-gradient(145deg,#1b1916,#0b0b0b);font-size:105px;position:relative}.tag{position:absolute;top:14px;left:14px;background:var(--gold);color:#111;padding:5px 9px;font-size:9px;letter-spacing:1px}
+.details{padding:20px}.details h3{margin:0;font-size:17px;letter-spacing:1px}.details p{color:var(--muted);font-size:13px;min-height:38px}.row{display:flex;justify-content:space-between;align-items:center}.price{color:var(--gold);font-weight:bold}.smallbtn{background:transparent;border:1px solid #4d412f;color:var(--text);padding:9px 12px;cursor:pointer}.smallbtn:hover{border-color:var(--gold);color:var(--gold)}
+.story{background:#0e0e0e;border-block:1px solid var(--line)}.storygrid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.story h2{font-size:43px;margin:10px 0}.story p{color:var(--muted);line-height:1.8}.quote{border-left:1px solid var(--gold);padding:28px;font-size:24px;font-style:italic;line-height:1.5}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{border:1px solid var(--line);padding:28px;text-align:center}.feature strong{display:block;margin:10px 0}.feature span{color:var(--muted);font-size:13px}
+.contact{text-align:center}.contact p{color:var(--muted);margin-bottom:25px}
+footer{border-top:1px solid var(--line);padding:30px;text-align:center;color:#777;font-size:11px;letter-spacing:1px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;place-items:center;z-index:100;padding:20px}.modal.open{display:grid}.box{background:#121212;border:1px solid #3a3328;width:min(480px,100%);padding:25px}.box h3{margin-top:0}.close{float:right;background:none;border:0;color:#aaa;font-size:22px;cursor:pointer}.box input,.box select,.box textarea{width:100%;padding:12px;margin:7px 0 12px;background:#090909;border:1px solid #333;color:#eee}.total{display:flex;justify-content:space-between;margin:12px 0 18px;color:var(--gold);font-weight:bold}
+@media(max-width:800px){.links{display:none}.grid{grid-template-columns:1fr 1fr}.storygrid{grid-template-columns:1fr;gap:25px}.features{grid-template-columns:1fr}.pic{height:250px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero{min-height:570px}.hero h1{letter-spacing:9px}.logo{font-size:18px}.nav{height:68px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#">YASENZO<b>®</b></a>
+<nav class="links"><a href="#shop">Shop</a><a href="#story">Story</a><a href="#contact">Contact</a></nav>
+<button class="cart" onclick="openCart()">CART (<span id="count">0</span>)</button>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Luxury Footwear · Pakistan</div>
+<h1>YASENZO</h1>
+<p>Premium footwear for a modern identity. Designed to look refined, feel confident and move with you.</p>
+<a class="btn" href="#shop">Shop Collection</a>
+</div></section>
+
+<section id="shop"><div class="wrap">
+<div class="head"><div class="eyebrow">The Collection</div><h2>Signature Footwear</h2><p>Choose your style and order directly on WhatsApp.</p></div>
+<div class="filters">
+<button class="filter active" onclick="filterProducts('all',this)">All</button>
+<button class="filter" onclick="filterProducts('sneakers',this)">Sneakers</button>
+<button class="filter" onclick="filterProducts('formal',this)">Formal</button>
+<button class="filter" onclick="filterProducts('boots',this)">Boots</button>
+</div>
+<div class="grid" id="products"></div>
+</div></section>
+
+<section class="story" id="story"><div class="wrap storygrid">
+<div><div class="eyebrow">The YASENZO Standard</div><h2>Luxury without the noise.</h2><p>YASENZO is a footwear concept built around clean silhouettes, confident details and a premium visual identity. This storefront is ready for your real catalogue, sizes and prices.</p></div>
+<div class="quote">“Your shoes introduce you before you say a word.”</div>
+</div></section>
+
+<section><div class="wrap"><div class="features">
+<div class="feature">✦<strong>Premium Style</strong><span>Modern silhouettes with a luxury aesthetic.</span></div>
+<div class="feature">◇<strong>COD Orders</strong><span>Take customer orders directly through WhatsApp.</span></div>
+<div class="feature">↗<strong>Wholesale</strong><span>Contact YASENZO for bulk and retailer enquiries.</span></div>
+</div></div></section>
+
+<section class="contact" id="contact"><div class="wrap"><div class="eyebrow">Orders & Enquiries</div><h2>Step into YASENZO.</h2><p>For sizes, availability, COD and wholesale enquiries.</p><a class="btn" href="https://wa.me/923241334431?text=Hello%20YASENZO%2C%20I%20want%20to%20place%20an%20order." target="_blank">WhatsApp YASENZO</a></div></section>
+</main>
+
+<footer>© 2026 YASENZO® · LUXURY FOOTWEAR · ALL RIGHTS RESERVED</footer>
+
+<div class="modal" id="modal"><div class="box">
+<button class="close" onclick="closeCart()">×</button><h3>Your Order</h3>
+<div id="cartItems"></div><div class="total"><span>Total</span><span id="total">PKR 0</span></div>
+<input id="name" placeholder="Your name">
+<input id="phone" placeholder="Phone number">
+<input id="address" placeholder="Delivery address">
+<select id="size"><option value="">Select shoe size</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option></select>
+<button class="btn" style="width:100%" onclick="checkout()">Order on WhatsApp</button>
+</div></div>
+
+<script>
+const products=[
+{id:1,name:"Yasenzo Noir",cat:"sneakers",price:4999,desc:"Minimal black everyday luxury sneaker.",icon:"👟",tag:"BESTSELLER"},
+{id:2,name:"Yasenzo Élité",cat:"sneakers",price:5999,desc:"Premium silhouette with a refined finish.",icon:"👟",tag:"NEW"},
+{id:3,name:"Yasenzo Classic",cat:"formal",price:6499,desc:"Clean lines and timeless character.",icon:"👞",tag:"SIGNATURE"},
+{id:4,name:"Yasenzo Executive",cat:"formal",price:7499,desc:"A polished formal look for special occasions.",icon:"👞",tag:"PREMIUM"},
+{id:5,name:"Yasenzo Urban",cat:"boots",price:6999,desc:"Bold urban boot with a modern profile.",icon:"🥾",tag:"LIMITED"},
+{id:6,name:"Yasenzo Shadow",cat:"boots",price:7999,desc:"Statement boot built for a confident look.",icon:"🥾",tag:"PREMIUM"}
+];
+let cart=[];
+function money(n){return "PKR "+n.toLocaleString("en-PK")}
+function render(list=products){
+document.getElementById("products").innerHTML=list.map(p=>`<article class="product"><div class="pic"><span class="tag">${p.tag}</span>${p.icon}</div><div class="details"><h3>${p.name}</h3><p>${p.desc}</p><div class="row"><span class="price">${money(p.price)}</span><button class="smallbtn" onclick="add(${p.id})">Add to Cart</button></div></div></article>`).join("");
+}
+function filterProducts(cat,el){document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));el.classList.add("active");render(cat==="all"?products:products.filter(p=>p.cat===cat))}
+function add(id){cart.push(products.find(p=>p.id===id));document.getElementById("count").textContent=cart.length;openCart()}
+function openCart(){document.getElementById("modal").classList.add("open");renderCart()}
+function closeCart(){document.getElementById("modal").classList.remove("open")}
+function renderCart(){
+const box=document.getElementById("cartItems");
+if(!cart.length){box.innerHTML="<p style='color:#aaa'>Your cart is empty.</p>";document.getElementById("total").textContent="PKR 0";return}
+box.innerHTML=cart.map((p,i)=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #252525"><span>${p.name}</span><span>${money(p.price)} <button onclick="removeItem(${i})" style="background:none;border:0;color:#888;cursor:pointer">×</button></span></div>`).join("");
+document.getElementById("total").textContent=money(cart.reduce((s,p)=>s+p.price,0));
+}
+function removeItem(i){cart.splice(i,1);document.getElementById("count").textContent=cart.length;renderCart()}
+function checkout(){
+if(!cart.length){alert("Please add a product first.");return}
+const name=document.getElementById("name").value.trim(),phone=document.getElementById("phone").value.trim(),address=document.getElementById("address").value.trim(),size=document.getElementById("size").value;
+if(!name||!phone||!address||!size){alert("Please fill name, phone, address and shoe size.");return}
+const items=cart.map(p=>`${p.name} - ${money(p.price)}`).join("%0A");
+const total=cart.reduce((s,p)=>s+p.price,0);
+const msg=`Hello YASENZO,%0A%0AI want to place an order.%0A%0A${items}%0A%0ATotal: ${money(total)}%0ASize: ${size}%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}%0A%0APlease confirm my COD order.`;
+window.open("https://wa.me/923241334431?text="+msg,"_blank");
+}
+render();
+</script>
+</body>
+</html>
